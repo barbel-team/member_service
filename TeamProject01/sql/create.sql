@@ -58,6 +58,13 @@ create table prd_rev (
                          FOREIGN KEY(fk_member) REFERENCES member(uid)
 );
 
+# <!--주문상품-->
+create table ord_prd (
+                         uid INT AUTO_INCREMENT PRIMARY KEY,
+                         fk_num varchar(15) NOT NULL,
+                         fk_ord_num INT NOT NULL,
+                         fk_adm INT NOT NULL
+);
 
 # <!--주문관리-->
 create table ord (
@@ -77,12 +84,11 @@ create table ord (
     FOREIGN KEY(deliv_num) REFERENCES ord_prd(uid)
 );
 
-# <!--주문상품-->
-create table ord_prd (
-                         uid INT AUTO_INCREMENT PRIMARY KEY,
-                         fk_num varchar(15) NOT NULL,
-                         fk_ord_num INT NOT NULL,
-                         fk_adm INT NOT NULL
+
+# <!--카테고리별 상품관리-->
+create table ctgprd (
+                        uid INT AUTO_INCREMENT PRIMARY KEY,
+                        c_name varchar(30) NOT NULL
 );
 
 # <!--상품관리-->
@@ -114,12 +120,6 @@ create table product_img
 );
 
 
-
-# <!--카테고리별 상품관리-->
-create table ctgprd (
-                        uid INT AUTO_INCREMENT PRIMARY KEY,
-                        c_name varchar(30) NOT NULL
-);
 
 # <!--문의게시판-->
 create table inquire_board (
