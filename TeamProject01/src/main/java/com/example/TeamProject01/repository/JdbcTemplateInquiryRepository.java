@@ -32,8 +32,8 @@ public class JdbcTemplateInquiryRepository implements InquiryRepositoryInterface
         parameters.put("b_pwd", i.getB_pwd());
         parameters.put("b_category", i.getB_category());
         parameters.put("ment", i.getMent());
-        parameters.put("b_date", i.getB_date());
         parameters.put("p_time", i.getP_time());
+        parameters.put("b_lock", i.getB_lock());
 
         Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
         i.setUid(key.intValue());

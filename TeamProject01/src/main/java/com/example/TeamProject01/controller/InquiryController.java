@@ -25,7 +25,7 @@ public class InquiryController {
         this.service = service;
     }
 
-    @PostMapping("myPage/myInquiry")
+    @PostMapping("/myPage/myInquiry")
     public String create(@Valid @NotNull Inquiry inqf) throws ParseException {
         // 우리는 사용자가 입력한 name 값을 가지고 객체를 만듦
         Date date = new Date();
@@ -39,6 +39,7 @@ public class InquiryController {
         i.setB_pwd(inqf.getB_pwd());
         i.setB_category(inqf.getB_category());
         i.setMent(inqf.getMent());
+        i.setB_lock(inqf.getB_lock());
         i.setB_date(inqf.getB_date());
         i.setP_time(timestamp.getTime());
 

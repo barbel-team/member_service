@@ -122,19 +122,25 @@ create table product_img
 
 
 # <!--문의게시판-->
-create table inquire_board (
-                               uid INT AUTO_INCREMENT PRIMARY KEY,
-                               fk_deliv INT NOT NULL,
-                               b_title varchar(50) NOT NULL,
-                               b_pwd varchar(20) NOT NULL,
-                               b_writer varchar(15) NOT NULL,
-                               ment varchar(300) NOT NULL,
-                               b_date date NOT NULL,
-                               b_cnt INT NOT NULL,
-                               b_category varchar(50) NOT NULL,
-                               b_lock char(3) NOT NULL,
-                               FOREIGN KEY(fk_deliv) REFERENCES ord(uid)
-);
+-- shoppingmall.inquiry_board definition
+
+CREATE TABLE `inquiry_board` (
+                                 `uid` int NOT NULL AUTO_INCREMENT,
+                                 `fk_deliv` int DEFAULT '1',
+                                 `b_title` varchar(50) NOT NULL,
+                                 `b_pwd` varchar(20) NOT NULL,
+                                 `b_writer` varchar(15) NOT NULL,
+                                 `ment` varchar(300) NOT NULL,
+                                 `b_date` date DEFAULT (curdate()),
+                                 `b_cnt` int DEFAULT '1',
+                                 `b_category` varchar(50) NOT NULL,
+                                 `b_lock` char(3) NOT NULL,
+                                 PRIMARY KEY (`uid`),
+                                 KEY `fk_deliv` (`fk_deliv`),
+                                 CONSTRAINT `inquiry_board_ibfk_1` FOREIGN KEY (`fk_deliv`) REFERENCES `ord` (`uid`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
 
 # <!--장바구니-->
 create table cart_prd (

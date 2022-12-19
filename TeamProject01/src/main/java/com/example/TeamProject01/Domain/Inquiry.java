@@ -15,6 +15,9 @@ public class Inquiry {
     @NotBlank
     private String b_title;
 
+
+    private String b_lock;
+
     @NotBlank
     private String b_writer;
 
