@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  db:
+    image: mariadb:10.10.2
+    container_name: memberDB
+    ports:
+      - 3308:3306
+    volumes:
+      - ./db/sql:/docker-entrypoint-initdb.d
+    environment:
+      TZ: Asia/Seoul
+      MYSQL_HOST: localhost
+      MYSQL_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root!
+      MYSQL_DATABASE: member
+      MYSQL_USER: barbel
+      MYSQL_PASSWORD: barbel!
+    networks:
+      - barbel_backend
+    restart: always
+
+networks:
+  barbel_backend:

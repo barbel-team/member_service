@@ -40,7 +40,6 @@ public class MemberService {
         return memberRepository.save(member);
     }
 
-    // new 를 이용해서 객체를 생성하지 않고 생성자를 통해서 기존에 생성된 객체를 계속 사용한다.
     @Autowired
     public MemberService(MemberRepositoryInterface repository){
         this.repository = repository;

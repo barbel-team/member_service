@@ -36,6 +36,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.security:spring-security-test'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+	implementation "org.mariadb.jdbc:mariadb-java-client:2.1.2"
+	implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.12'
+	// https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-annotations
+	implementation group: 'io.swagger.core.v3', name: 'swagger-annotations', version: '2.2.7'
 }
 
 tasks.named('test') {

@@ -34,10 +34,10 @@ public class pageController {
         return "contact/aboutUs";
     }
 
-    @GetMapping("/register")
+    /*@GetMapping("/register")
     public String goRegister() {
         return "member/register";
-    }
+    }*/
 
     @GetMapping("/login")
     public String goLogin() {

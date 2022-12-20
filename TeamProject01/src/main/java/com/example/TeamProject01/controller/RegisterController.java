@@ -2,6 +2,9 @@ package com.example.TeamProject01.controller;
 
 import com.example.TeamProject01.Domain.Member;
 import com.example.TeamProject01.service.MemberService;
+import com.fasterxml.jackson.core.io.JsonStringEncoder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -11,10 +14,10 @@ import java.sql.Timestamp;
 import java.text.ParseException;
 import java.util.Date;
 
-@Controller
+@RestController
 @RequestMapping(value = "/register")
 public class RegisterController {
-
+    Logger logger = LoggerFactory.getLogger(RegisterController.class);
     @Autowired
     MemberService service;
 
@@ -23,15 +26,12 @@ public class RegisterController {
         this.service = service;
     }
 
-    @PostMapping // 슬러쉬를 붙이지 않으면 이전의 URL 뒤에 이어서 URL 이 나옴, 그리고 슬러쉬를 붙이면
-    // Localhost: XXXX 뒤에 이어서 나옴
-    public String create(@Valid Member m) throws ParseException {
-        // 우리는 사용자가 입력한 name 값을 가지고 객체를 만듦
+    @PostMapping("")
+    public Member create(@RequestBody Member m) throws ParseException {
+        service.save(m);
 
-        // DB에 넣어야 함.
-
-        service.save(m); // 여기에다가 memberForm 을 그대로 때려 넣는것은 좀 아님.
-        return "redirect:/";
+        return m;
+        //return "redirect:/";
     }
 
     @ResponseBody
