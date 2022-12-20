@@ -7,7 +7,7 @@ services:
     ports:
       - 3308:3306
     volumes:
-      - ./db/sql:/docker-entrypoint-initdb.d
+      - ./TeamProject01/db/sql:/docker-entrypoint-initdb.d
     environment:
       TZ: Asia/Seoul
       MYSQL_HOST: localhost
