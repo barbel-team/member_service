@@ -14,7 +14,6 @@ CREATE TABLE member.member(
         PRIMARY KEY (uid),
         UNIQUE INDEX `id01_UNIQUE` (id01 ASC) VISIBLE
 );
-
 CREATE TABLE member.role(
     id BIGINT NOT NULL AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
